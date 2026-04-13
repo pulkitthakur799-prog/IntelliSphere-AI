@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="IntelliSphere AI – Personalized career guidance, interview coaching, skill gap detection, and mental wellness support for students." />
+  <title>IntelliSphere AI | Your Personal Student Mentor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="header" id="header">
+    <div class="nav-container">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <circle cx="13" cy="13" r="12" stroke="url(#g1)" stroke-width="2" />
+            <path d="M8 13 L13 8 L18 13 L13 18 Z" fill="url(#g1)" />
+            <circle cx="13" cy="13" r="3" fill="#fff" />
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#7C3AED" />
+                <stop offset="1" stop-color="#06B6D4" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="logo-text">IntelliSphere <span class="logo-ai">AI</span></span>
+      </div>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#tools" class="nav-link" onclick="switchTab('resume')">Resume</a>
+        <a href="#tools" class="nav-link" onclick="switchTab('career')">Career</a>
+        <a href="#tools" class="nav-link" onclick="switchTab('interview')">Interview</a>
+        <a href="#tools" class="nav-link" onclick="switchTab('skill')">Skill Gap</a>
+        <a href="#tools" class="nav-link" onclick="switchTab('wellness')">Wellness</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Your Personal AI Student Mentor
+      </div>
+      <h1 class="hero-title">
+        Personalized Guidance<br />
+        <span class="gradient-text">For Every Student</span>
+      </h1>
+      <p class="hero-subtitle">
+        Get tailored career roadmaps, real-time interview coaching, skill gap analysis, and mental wellness support —
+        all in one intelligent platform built for students.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="scrollToTools()">
+          Start Your Journey
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+        <button class="btn-ghost" onclick="switchTab('career'); scrollToTools()">Generate Career Roadmap</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">5</span>
+          <span class="stat-label">AI Tools</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">6</span>
+          <span class="stat-label">Career Paths</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Free</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">∞</span>
+          <span class="stat-label">Analyses</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Feature Pills -->
+    <div class="hero-pills">
+      <div class="hero-pill pill-1">📄 Resume AI</div>
+      <div class="hero-pill pill-2">🗺️ Career Roadmap</div>
+      <div class="hero-pill pill-3">🎙️ Interview Coach</div>
+      <div class="hero-pill pill-4">🧠 Skill Gap</div>
+      <div class="hero-pill pill-5">💜 Wellness</div>
+    </div>
+  </section>
+
+  <!-- ===== TOOLS SECTION ===== -->
+  <section class="tools-section" id="tools">
+
+    <!-- Tab Switcher -->
+    <div class="tab-bar" id="tabBar">
+      <button class="tab-btn active" id="tab-resume" onclick="switchTab('resume')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+        </svg>
+        Resume
+      </button>
+      <button class="tab-btn" id="tab-career" onclick="switchTab('career')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+        Career
+      </button>
+      <button class="tab-btn" id="tab-interview" onclick="switchTab('interview')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+        </svg>
+        Interview
+      </button>
+      <button class="tab-btn" id="tab-skill" onclick="switchTab('skill')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+        </svg>
+        Skill Gap
+      </button>
+      <button class="tab-btn" id="tab-wellness" onclick="switchTab('wellness')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path
+            d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+        </svg>
+        Wellness
+      </button>
+    </div>
+
+    <!-- ===== RESUME ANALYZER PANEL ===== -->
+    <div class="panel active" id="panel-resume">
+      <div class="panel-header">
+        <div class="panel-icon resume-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+          </svg>
+        </div>
+        <div>
+          <h2 class="panel-title">Resume Analyzer</h2>
+          <p class="panel-desc">Paste your resume and get an instant AI score with personalized skill feedback for your
+            target role.</p>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label class="input-label" for="resumeText">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+            <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+          </svg>
+          Paste Your Resume Text
+        </label>
+        <textarea id="resumeText" class="textarea" rows="10" placeholder="Paste your full resume here — include your skills, experience, education, and projects...
+
+Example:
+Name: John Doe
+Skills: Python, JavaScript, Machine Learning, SQL
+Experience: 2 years intern at XYZ Corp
+Education: B.Tech Computer Science
+Projects: Built a chatbot, E-commerce website..."></textarea>
+        <div class="char-count" id="resumeCharCount">0 characters</div>
+      </div>
+
+      <div class="role-select-group">
+        <label class="input-label">Target Role</label>
+        <div class="role-chips" id="resumeRoleChips">
+          <button class="role-chip active" data-role="software-engineer" onclick="selectRole(this, 'resume')">Software
+            Engineer</button>
+          <button class="role-chip" data-role="data-scientist" onclick="selectRole(this, 'resume')">Data
+            Scientist</button>
+          <button class="role-chip" data-role="web-developer" onclick="selectRole(this, 'resume')">Web
+            Developer</button>
+          <button class="role-chip" data-role="ml-engineer" onclick="selectRole(this, 'resume')">ML Engineer</button>
+          <button class="role-chip" data-role="devops" onclick="selectRole(this, 'resume')">DevOps Engineer</button>
+          <button class="role-chip" data-role="product-manager" onclick="selectRole(this, 'resume')">Product
+            Manager</button>
+        </div>
+      </div>
+
+      <button class="analyze-btn" id="resumeBtn" onclick="analyzeResume()">
+        <span class="btn-text">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <path d="M21 21l-4.35-4.35" />
+          </svg>
+          Analyze Resume
+        </span>
+        <div class="btn-loader" style="display:none">
+          <div class="loader-dot"></div>
+          <div class="loader-dot"></div>
+          <div class="loader-dot"></div>
+        </div>
+      </button>
+
+      <div class="result-area" id="resumeResult" style="display:none"></div>
+    </div>
+
+    <!-- ===== CAREER ROADMAP PANEL ===== -->
+    <div class="panel" id="panel-career">
+      <div class="panel-header">
+        <div class="panel-icon career-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+        </div>
+        <div>
+          <h2 class="panel-title">Personalized Career Roadmap</h2>
+          <p class="panel-desc">Tell us about yourself and your ambitions — get a custom month-by-month action plan to
+            land your dream role.</p>
+        </div>
+      </div>
+
+      <!-- Career Form -->
+      <div class="career-form-grid">
+        <div class="input-group">
+          <label class="input-label" for="careerName">Your Name (optional)</label>
+          <input type="text" id="careerName" class="text-input" placeholder="e.g. Priya Sharma" />
+        </div>
+        <div class="input-group">
+          <label class="input-label" for="careerYear">Current Year of Study</label>
+          <select id="careerYear" class="select-input">
+            <option value="1st">1st Year</option>
+            <option value="2nd" selected>2nd Year</option>
+            <option value="3rd">3rd Year</option>
+            <option value="final">Final Year</option>
+            <option value="grad">Recent Graduate</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label class="input-label">Dream Career Goal</label>
+        <div class="role-chips" id="careerGoalChips">
+          <button class="role-chip active" data-role="software-engineer" onclick="selectRole(this, 'career')">Software
+            Engineer</button>
+          <button class="role-chip" data-role="data-scientist" onclick="selectRole(this, 'career')">Data
+            Scientist</button>
+          <button class="role-chip" data-role="web-developer" onclick="selectRole(this, 'career')">Web
+            Developer</button>
+          <button class="role-chip" data-role="ml-engineer" onclick="selectRole(this, 'career')">ML Engineer</button>
+          <button class="role-chip" data-role="devops" onclick="selectRole(this, 'career')">DevOps Engineer</button>
+          <button class="role-chip" data-role="product-manager" onclick="selectRole(this, 'career')">Product
+            Manager</button>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label class="input-label" for="careerSkillsInput">Skills You Already Have</label>
+        <input type="text" id="careerSkillsInput" class="text-input"
+          placeholder="e.g. Python, HTML, CSS, Git (comma-separated)" />
+      </div>
+
+      <div class="input-group">
+        <label class="input-label">What do you find most challenging?</label>
+        <div class="situation-grid" id="careerChallenges">
+          <button class="situation-chip" data-tag="no-projects" onclick="toggleChallenge(this)">🔨 No Projects
+            Yet</button>
+          <button class="situation-chip" data-tag="no-internship" onclick="toggleChallenge(this)">💼 No
+            Internship</button>
+          <button class="situation-chip" data-tag="low-cgpa" onclick="toggleChallenge(this)">📉 Low CGPA</button>
+          <button class="situation-chip" data-tag="interview-fear" onclick="toggleChallenge(this)">😰 Interview
+            Fear</button>
+          <button class="situation-chip" data-tag="networking" onclick="toggleChallenge(this)">🤝 Weak Network</button>
+          <button class="situation-chip" data-tag="time" onclick="toggleChallenge(this)">⏰ Time Management</button>
+          <button class="situation-chip" data-tag="direction" onclick="toggleChallenge(this)">🧭 No Clear
+            Direction</button>
+          <button class="situation-chip" data-tag="skills-gap" onclick="toggleChallenge(this)">📚 Skill Gap</button>
+        </div>
+      </div>
+
+      <button class="analyze-btn career-btn" id="careerBtn" onclick="generateCareerRoadmap()">
+        <span class="btn-text">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+          </svg>
+          Generate My Personalized Roadmap
+        </span>
+        <div class="btn-loader" style="display:none">
+          <div class="loader-dot"></div>
+          <div class="loader-dot"></div>
+          <div class="loader-dot"></div>
+        </div>
+      </button>
+
+      <div class="result-area" id="careerResult" style="display:none"></div>
+    </div>
+
+    <!-- ===== INTERVIEW ANALYZER PANEL ===== -->
+    <div class="panel" id="panel-interview">
+      <div class="panel-header">
+        <div class="panel-icon interview-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+          </svg>
+        </div>
+        <div>
+          <h2 class="panel-title">Interview Coach</h2>
+          <p class="panel-desc">Practice real interview questions and get detailed AI feedback on clarity, depth,
+            structure, and relevance.</p>
+        </div>
+      </div>
+
+      <!-- Interview Mode Toggle -->
+      <div class="mode-toggle-group">
+        <label class="input-label">Practice Mode</label>
+        <div class="mode-toggle">
+          <button class="mode-btn active" id="mode-analyze" onclick="setInterviewMode('analyze')">
+            📝 Analyze My Answer
+          </button>
+          <button class="mode-btn" id="mode-tips" onclick="setInterviewMode('tips')">
+            💡 Get Answer Tips
+          </button>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label class="input-label">Select Interview Question</label>
+        <div class="question-selector">
+          <select class="select-input" id="interviewQuestion" onchange="updateQuestion()">
+            <option value="tell-me-about-yourself">Tell me about yourself</option>
+            <option value="strengths-weaknesses">What are your strengths and weaknesses?</option>
+            <option value="why-this-company">Why do you want to work here?</option>
+            <option value="greatest-achievement">Describe your greatest achievement</option>
+            <option value="where-5-years">Where do you see yourself in 5 years?</option>
+            <option value="handle-pressure">How do you handle pressure and stress?</option>
+            <option value="teamwork">Describe a time you worked in a team</option>
+            <option value="problem-solving">Tell me about a problem you solved</option>
+            <option value="leadership">Describe a time you showed leadership</option>
+            <option value="failure">Tell me about a failure and what you learned</option>
+            <option value="custom">Custom question...</option>
+          </select>
+        </div>
+        <div class="custom-question-wrap" id="customQuestionWrap" style="display:none">
+          <input type="text" class="text-input" id="customQuestion"
+            placeholder="Type your custom interview question here..." />
+        </div>
+
+        <div class="question-tip" id="questionTip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 8v4M12 16h.01" />
+          </svg>
+          <span id="questionTipText">Tip: Mention your background, skills, and career goals in 1-2 minutes.</span>
+        </div>
+      </div>
+
+      <!-- Tips Mode Panel -->
+      <div id="tipsModePanel" style="display:none">
+        <div class="tips-panel">
+          <div class="tips-panel-header">💡 Expert Tips for This Question</div>
+          <div id="tipsContent" class="tips-content"></div>
+          <div class="tips-example-header">✍️ Sample Strong Answer Structure</div>
+          <div id="tipsExample" class="tips-example"></div>
+        </div>
+      </div>
+
+      <!-- Answer Mode Panel -->
+      <div id="analyzeModePanel">
+        <div class="input-group">
+          <label class="input-label" for="interviewAnswer">Your Answer</label>
+          <textarea id="interviewAnswer" class="textarea" rows="8"
+            placeholder="Write your interview answer here... Be as detailed as you would in a real interview."></textarea>
+          <div class="char-count" id="interviewCharCount">0 characters | 0 words</div>
+        </div>
+
+        <button class="analyze-btn interview-btn" id="interviewBtn" onclick="analyzeInterview()">
+          <span class="btn-text">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+            </svg>
+            Analyze My Answer
+          </span>
+          <div class="btn-loader" style="display:none">
+            <div class="loader-dot"></div>
+            <div class="loader-dot"></div>
+            <div class="loader-dot"></div>
+          </div>
+        </button>
+      </div>
+
+      <div class="result-area" id="interviewResult" style="display:none"></div>
+    </div>
+
+    <!-- ===== SKILL GAP PANEL ===== -->
+    <div class="panel" id="panel-skill">
+      <div class="panel-header">
+        <div class="panel-icon skill-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>
+        </div>
+        <div>
+          <h2 class="panel-title">Skill Gap Analyzer</h2>
+          <p class="panel-desc">Enter your current skills and target role — we'll show exactly what you're missing and
+            how to learn it.</p>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="input-group">
+          <label class="input-label" for="userSkills">Your Current Skills</label>
+          <textarea id="userSkills" class="textarea" rows="6" placeholder="Python, JavaScript, HTML, CSS, SQL, Git...
+
+(Separate skills with commas)"></textarea>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Target Role</label>
+          <div class="role-chips vertical" id="skillRoleChips">
+            <button class="role-chip active" data-role="software-engineer" onclick="selectRole(this, 'skill')">Software
+              Engineer</button>
+            <button class="role-chip" data-role="data-scientist" onclick="selectRole(this, 'skill')">Data
+              Scientist</button>
+            <button class="role-chip" data-role="web-developer" onclick="selectRole(this, 'skill')">Web
+              Developer</button>
+            <button class="role-chip" data-role="ml-engineer" onclick="selectRole(this, 'skill')">ML Engineer</button>
+            <button class="role-chip" data-role="devops" onclick="selectRole(this, 'skill')">DevOps Engineer</button>
+            <button class="role-chip" data-role="product-manager" onclick="selectRole(this, 'skill')">Product
+              Manager</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="analyze-btn skill-btn" id="skillBtn" onclick="analyzeSkillGap()">
+        <span class="btn-text">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>
+          Analyze Skill Gap
+        </span>
+        <div class="btn-loader" style="display:none">
+          <div class="loader-dot"></div>
+          <div class="loader-dot"></div>
+          <div class="loader-dot"></div>
+        </div>
+      </button>
+
+      <div class="result-area" id="skillResult" style="display:none"></div>
+    </div>
+
+    <!-- ===== MENTAL WELLNESS PANEL ===== -->
+    <div class="panel" id="panel-wellness">
+      <div class="panel-header">
+        <div class="panel-icon wellness-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+          </svg>
+        </div>
+        <div>
+          <h2 class="panel-title">Mental Wellness Coach</h2>
+          <p class="panel-desc">Complete your 5-step wellness check-in and receive a personalized self-care plan, coping
+            strategies, and daily rituals tailored just for you.</p>
+        </div>
+      </div>
+
+      <!-- Wellness Intro Card -->
+      <div class="wellness-intro-card">
+        <div class="wellness-intro-row">
+          <div class="wellness-intro-item">
+            <span class="wellness-intro-icon">🧘</span>
+            <span>Personalized coping strategies</span>
+          </div>
+          <div class="wellness-intro-item">
+            <span class="wellness-intro-icon">🌅</span>
+            <span>Daily micro-rituals</span>
+          </div>
+          <div class="wellness-intro-item">
+            <span class="wellness-intro-icon">💜</span>
+            <span>Affirming guidance</span>
+          </div>
+          <div class="wellness-intro-item">
+            <span class="wellness-intro-icon">🫁</span>
+            <span>Breathing exercises</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 1: Mood -->
+      <div class="wellness-step">
+        <label class="input-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+            <line x1="9" y1="9" x2="9.01" y2="9" />
+            <line x1="15" y1="9" x2="15.01" y2="9" />
+          </svg>
+          Step 1 — How are you feeling right now?
+        </label>
+        <div class="mood-grid" id="moodGrid">
+          <button class="mood-btn" data-mood="5" data-label="Amazing" onclick="selectMood(this)">
+            <span class="mood-emoji">🤩</span>
+            <span class="mood-word">Amazing</span>
+          </button>
+          <button class="mood-btn" data-mood="4" data-label="Good" onclick="selectMood(this)">
+            <span class="mood-emoji">😊</span>
+            <span class="mood-word">Good</span>
+          </button>
+          <button class="mood-btn" data-mood="3" data-label="Okay" onclick="selectMood(this)">
+            <span class="mood-emoji">😐</span>
+            <span class="mood-word">Okay</span>
+          </button>
+          <button class="mood-btn" data-mood="2" data-label="Low" onclick="selectMood(this)">
+            <span class="mood-emoji">😔</span>
+            <span class="mood-word">Low</span>
+          </button>
+          <button class="mood-btn" data-mood="1" data-label="Stressed" onclick="selectMood(this)">
+            <span class="mood-emoji">😰</span>
+            <span class="mood-word">Stressed</span>
+          </button>
+          <button class="mood-btn" data-mood="0" data-label="Overwhelmed" onclick="selectMood(this)">
+            <span class="mood-emoji">😭</span>
+            <span class="mood-word">Overwhelmed</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2: Stress Level -->
+      <div class="wellness-step">
+        <label class="input-label" for="stressSlider">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+          </svg>
+          Step 2 — Current stress level
+        </label>
+        <div class="slider-wrap">
+          <span class="slider-label-sm">😌 Calm</span>
+          <input type="range" id="stressSlider" class="stress-slider" min="0" max="10" value="5"
+            oninput="updateStressLabel(this.value)" />
+          <span class="slider-label-sm">🔥 Max</span>
+        </div>
+        <div class="stress-display" id="stressDisplay">Stress Level: <strong>5</strong> / 10</div>
+      </div>
+
+      <!-- Step 3: Sleep -->
+      <div class="wellness-step">
+        <label class="input-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+          </svg>
+          Step 3 — How many hours did you sleep last night?
+        </label>
+        <div class="sleep-chips" id="sleepChips">
+          <button class="sleep-chip" data-sleep="3" onclick="selectSleep(this)">Under 4h 😵</button>
+          <button class="sleep-chip" data-sleep="5" onclick="selectSleep(this)">4–6h 😴</button>
+          <button class="sleep-chip active" data-sleep="7" onclick="selectSleep(this)">7–8h 😊</button>
+          <button class="sleep-chip" data-sleep="9" onclick="selectSleep(this)">9h+ 🛌</button>
+        </div>
+      </div>
+
+      <!-- Step 4: Situation Tags -->
+      <div class="wellness-step">
+        <label class="input-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 11l3 3L22 4" />
+            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+          </svg>
+          Step 4 — What's weighing on you? (Select all that apply)
+        </label>
+        <div class="situation-grid" id="situationGrid">
+          <button class="situation-chip" data-tag="exams" onclick="toggleSituation(this)">📚 Exams / Deadlines</button>
+          <button class="situation-chip" data-tag="career" onclick="toggleSituation(this)">💼 Career Anxiety</button>
+          <button class="situation-chip" data-tag="social" onclick="toggleSituation(this)">👥 Social Pressure</button>
+          <button class="situation-chip" data-tag="finance" onclick="toggleSituation(this)">💰 Financial Stress</button>
+          <button class="situation-chip" data-tag="family" onclick="toggleSituation(this)">🏠 Family Issues</button>
+          <button class="situation-chip" data-tag="lonely" onclick="toggleSituation(this)">🌧️ Feeling Lonely</button>
+          <button class="situation-chip" data-tag="confidence" onclick="toggleSituation(this)">💪 Low
+            Confidence</button>
+          <button class="situation-chip" data-tag="burnout" onclick="toggleSituation(this)">🔥 Burnout</button>
+          <button class="situation-chip" data-tag="focus" onclick="toggleSituation(this)">🧠 Lack of Focus</button>
+          <button class="situation-chip" data-tag="nothing" onclick="toggleSituation(this)">✨ Nothing specific</button>
+        </div>
+      </div>
+
+      <!-- Step 5: Goal -->
+      <div class="wellness-step">
+        <label class="input-label" for="wellnessGoal">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+          Step 5 — What would help most right now? (Optional)
+        </label>
+        <textarea id="wellnessGoal" class="textarea" rows="3"
+          placeholder="e.g. I want to feel calmer before my exam tomorrow, or I want to stop overthinking at night..."></textarea>
+      </div>
+
+      <button class="analyze-btn wellness-btn" id="wellnessBtn" onclick="analyzeWellness()">
+        <span class="btn-text">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+          </svg>
+          Generate My Wellness Plan
+        </span>
+        <div class="btn-loader" style="display:none">
+          <div class="loader-dot"></div>
+          <div class="loader-dot"></div>
+          <div class="loader-dot"></div>
+        </div>
+      </button>
+
+      <div class="result-area" id="wellnessResult" style="display:none"></div>
+    </div>
+
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section class="about-section" id="about">
+    <div class="about-container">
+      <div class="section-badge">About IntelliSphere AI</div>
+      <h2 class="section-title">Built for Students, <span class="gradient-text">Powered by Intelligence</span></h2>
+      <p class="section-subtitle">From resume scoring to mental wellness coaching — IntelliSphere AI is your all-in-one
+        personal mentor that grows with you.</p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon f1">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+            </svg>
+          </div>
+          <h3>Smart Resume Scoring</h3>
+          <p>Instant score on your resume based on industry-relevant skills for your target role with actionable
+            recommendations.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon f6">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+          <h3>Personalized Career Roadmap</h3>
+          <p>Custom month-by-month action plan based on your current year, skills, and challenges — mapped to your dream
+            role.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon f2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+            </svg>
+          </div>
+          <h3>Interview Coach</h3>
+          <p>Practice 10+ common questions, get answer tips, and receive structured AI feedback on your actual answers.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon f3">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+          </div>
+          <h3>Skill Gap Detection</h3>
+          <p>Compare what you know against what top companies require, get a precise breakdown and priority learning
+            roadmap.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon f5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+            </svg>
+          </div>
+          <h3>Mental Wellness Guidance</h3>
+          <p>Personalized coping strategies, affirmations, breathing exercises, and daily self-care plans — your mental
+            health matters.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon f4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <h3>100% Free &amp; Private</h3>
+          <p>No sign-up required. Everything runs in your browser — your data never leaves your device. Always free.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg width="20" height="20" viewBox="0 0 26 26" fill="none">
+            <circle cx="13" cy="13" r="12" stroke="url(#g2)" stroke-width="2" />
+            <path d="M8 13 L13 8 L18 13 L13 18 Z" fill="url(#g2)" />
+            <circle cx="13" cy="13" r="3" fill="#fff" />
+            <defs>
+              <linearGradient id="g2" x1="0" y1="0" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#7C3AED" />
+                <stop offset="1" stop-color="#06B6D4" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="logo-text">IntelliSphere <span class="logo-ai">AI</span></span>
+      </div>
+      <p class="footer-text">© 2025 IntelliSphere AI · Built for students, by students · Free forever · Your personal
+        career &amp; wellness mentor</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
